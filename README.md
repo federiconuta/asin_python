@@ -20,3 +20,14 @@ asin_lookup2("airpods"):
 
 Clean the dataset whereby necessary.
 
+## Class version
+
+The file called amazonscraperclass.py provides a more compact way to perform the task. Specifically it defines a class AmazonASINScraper with an attribute called get_first_three_asins which returns the name of the product and the first 3 non missing ASIN for the product search input.
+
+# Usage
+scraper = AmazonASINScraper()
+df = pd.DataFrame({'Name': ['Airpods', 'Echo', 'Kindle']})  # Example DataFrame
+
+df['ASINs'] = df['Name'].apply(scraper.get_first_three_asins)
+print(df)
+
